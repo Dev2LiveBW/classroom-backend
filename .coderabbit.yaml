@@ -1,0 +1,12 @@
+# .coderabbit.yaml
+language: "en-US"
+reviews:
+  # Focus on the 'src' directory and ignore generated files
+  path_filters:
+    - "!drizzle/**"
+    - "!dist/**"
+    - "src/**"
+  # Custom instructions for the AI reviewer
+  instructions: |
+    Ensure that TypeScript best practices are followed.
+    Verify that Drizzle ORM schema changes are reflected in any added queries.
