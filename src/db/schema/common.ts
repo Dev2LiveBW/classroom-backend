@@ -1,7 +1,16 @@
 import { timestamp, pgEnum } from "drizzle-orm/pg-core";
 
+export type DayOfWeek = 
+  | "Monday" 
+  | "Tuesday" 
+  | "Wednesday" 
+  | "Thursday" 
+  | "Friday" 
+  | "Saturday" 
+  | "Sunday";
+
 export type Schedule = {
-  day: string;
+  day: DayOfWeek;
   startTime: string;
   endTime: string;
 };
