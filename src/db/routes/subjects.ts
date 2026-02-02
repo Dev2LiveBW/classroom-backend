@@ -38,7 +38,10 @@ subjectsRouter.get("/", async (req: express.Request, res: express.Response) => {
         const countResult = await db.select({  count: sql<number>`count(*)` })
             .from(subjects)
             .leftJoin(departments, eq(subjects.departmentId, departments.id))
-            .where(whereClause);
+            .where(whereClause)
+            .orderBy(desc(subjects.createdAt))
+            .limit(limitPerPage)
+            .offset(offset);
 
         const totalCount = countResult[0]?.count ?? 0;
 
